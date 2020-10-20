@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    justify-content: center;
+    background-color: #cccccc;
+}
+
+table{
+    border-collapse: collapse;
+    background-color: #cccccc;
+}
+
+table, th, td{
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.iconoFormulario{
+    height: 35px;
+}

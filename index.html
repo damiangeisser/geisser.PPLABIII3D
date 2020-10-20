@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <script src="./js/scripts.js" defer type="module"></script>
+    <title>Practica Parcial</title>
+</head>
+
+<body>
+    <head>
+        
+    </head>
+    <section class="container" id="dataIn">
+        <form>
+            <fieldset>
+                <legend>Información del anuncio</legend>
+            <label>
+                Título: <input type="text" id="txtTitulo" name="titulo" placeholder="Título" required>
+            </label>
+            <br><br>
+            <label>
+                Descripción: <input type="text" id="txtDescripcion" name="descripcion" placeholder="Título" required>
+            </label>
+            <br><br>
+            <label>
+                Animal:
+            </label>
+            <br><br>
+            <input type="radio" name="animal" id="rdoPerro" value="perro" required>Perro
+                <br><br>
+                <input type="radio" name="animal" id="rdoGAto" value="gato" required>Gato
+                <br><br>
+            <label>
+                Precio: <input type="number" id="numPrecio" name="precio" placeholder="Precio" required>
+            </label>
+            <br><br>
+            <div>
+            <label>
+               <img src="./images/raza.png" class="iconoFormulario" alt="raza"> <input type="text" id="txtRaza" name="raza" placeholder="Raza" required>
+            </label>
+        </div>
+            <br><br>
+            <label>
+                <img src="./images/calendario.png" class="iconoFormulario" alt="calendario">  <input type="date" id="dateFecha" name="fecha" required>
+            </label>
+            <br><br>
+            <img src="./images/jeringa.png" class="iconoFormulario" alt="vacunas">
+            <select id="selectVacuna" name="vacunas" required>
+                <option value="si">Sí</option>
+                <option value="no">No</option>
+            </select>
+            </fieldset>
+            <button id="alta">Guardar</button>
+            <button type="button" id="baja">Eliminar</button>
+            <button id="modificacion" type="button">Modificar</button>
+        </form>
+    </section>
+    <section class="container">
+        <div id="divTabla">
+        </div>
+    </section>
+</body>
+
+</html>
