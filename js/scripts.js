@@ -1,13 +1,12 @@
 import crearTabla from "./tabla.js";
-import Anuncio from "./anuncio.js";
+import Anuncio_Mascota from "./anuncio.js";
 
-import {idSeleccionado} from './tabla.js';
+import { idSeleccionado } from './tabla.js';
 
 let listaAnuncios;
 let frmAnuncio;
 let proximoId;
 let divTabla;
-//let alta;
 let baja;
 let modificacion;
 let index;
@@ -45,11 +44,11 @@ function inicializarManejadores() {
             proximoId++;
             guardarDatos();
             actualizarLista();
-            resetearFormulario();     
+            resetearFormulario();
         }
     })
 
-    baja.addEventListener('click', function(){
+    baja.addEventListener('click', function () {
 
         index = encontrarIndexAnuncio(idSeleccionado);
 
@@ -58,36 +57,30 @@ function inicializarManejadores() {
             listaAnuncios.splice(index, 1);
 
             resetearFormulario();
-
-            console.log("borrando index " + index);
         }
 
         actualizarLista();
     })
 
-    modificacion.addEventListener('click', function(){
+    modificacion.addEventListener('click', function () {
 
         index = encontrarIndexAnuncio(idSeleccionado);
 
-        console.log(index);
+        if (index > -1) {
 
-        if(index > -1){
-
-            listaAnuncios[index] = new Anuncio(idSeleccionado,
-            frmAnuncio.titulo.value,
-            frmAnuncio.descripcion.value,
-            frmAnuncio.animal.value,
-            frmAnuncio.precio.value,
-            frmAnuncio.raza.value,
-            frmAnuncio.fecha.value,
-            frmAnuncio.vacunas.value);
-
-   
+            listaAnuncios[index] = new Anuncio_Mascota(idSeleccionado,
+                frmAnuncio.titulo.value,
+                frmAnuncio.descripcion.value,
+                frmAnuncio.animal.value,
+                frmAnuncio.precio.value,
+                frmAnuncio.raza.value,
+                frmAnuncio.fecha.value,
+                frmAnuncio.vacunas.value);
 
             resetearFormulario();
         }
 
-        actualizarLista(); 
+        actualizarLista();
     })
 }
 
@@ -98,11 +91,11 @@ function obtenerAnuncios() {
 
 function obtenerId() {
 
-    return JSON.parse(localStorage.getItem('nextId')) || 100;
+    return JSON.parse(localStorage.getItem('nextId')) || 1;
 }
 
 function obtenerAnuncio() {
-    const nuevoAviso = new Anuncio(proximoId,
+    const nuevoAviso = new Anuncio_Mascota(proximoId,
         frmAnuncio.titulo.value,
         frmAnuncio.descripcion.value,
         frmAnuncio.animal.value,
@@ -121,8 +114,23 @@ function guardarDatos() {
 }
 
 function actualizarLista() {
+
+    let spinner = document.createElement("img");
+    spinner.src = "./images/perro.gif";
+
+    spinner.height = 75;
+
     divTabla.innerHTML = "";
-    divTabla.appendChild(crearTabla(listaAnuncios));
+
+    divTabla.appendChild(spinner)
+
+    setTimeout(() => {
+
+        divTabla.innerHTML = "";
+
+        divTabla.appendChild(crearTabla(listaAnuncios));
+
+    }, 3000);
 }
 
 function encontrarIndexAnuncio(id) {
@@ -134,23 +142,13 @@ function encontrarAnuncio(index) {
 }
 
 export default function cargarFormulario(id) {
-    
-    if(id){
+
+    if (id) {
         const anuncioSeleccionado = encontrarAnuncio(encontrarIndexAnuncio(id));
-
-                 // this.id = id;
-            // this.titulo = titulo;
-            // this.descripcion = descripcion;
-            // this.animal = animal;
-            // this.precio = precio;
-            // this.raza = raza;
-            // this.fecha = fecha;
-            // this.vacunas = vacunas;
-
         frmAnuncio.titulo.value = anuncioSeleccionado.titulo;
         frmAnuncio.descripcion.value = anuncioSeleccionado.descripcion;
 
-        const idAnimal = document.querySelector("input[value="+ CSS.escape(anuncioSeleccionado.animal) + "]").id;
+        const idAnimal = document.querySelector("input[value=" + CSS.escape(anuncioSeleccionado.animal) + "]").id;
 
         document.getElementById(idAnimal).checked = true;
 

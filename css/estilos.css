@@ -1,19 +1,117 @@
+head{
+    width: 100vw;
+    height: 75px;
+    background-color: orange;
+    font-family:'Roboto',sans-serif;
+    list-style: none;
+}
+
 .container{
     display: flex;
     justify-content: center;
+    font-family:'Roboto',sans-serif;
+    border-collapse: collapse;
+    max-width: 600px;
+    margin: auto;
+}
+
+form{
+    width: 100%;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    box-sizing: border-box;
     background-color: #cccccc;
+    border-radius: 10px;
+}
+
+input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    box-sizing: border-box;
+    background-color: #cccccc;
+    border-radius: 10px;
+}
+
+input[type=date] {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    box-sizing: border-box;
+    background-color: #cccccc;
+    border-radius: 10px;
+}
+
+#selectVacuna {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    box-sizing: border-box;
+    background-color: #cccccc;
+    border-radius: 10px;
+}
+
+#txtRaza{
+    width: 20%;
 }
 
 table{
     border-collapse: collapse;
-    background-color: #cccccc;
+    background-color: #e4e4e4;
 }
 
 table, th, td{
-    border: 1px solid black;
+    border: 1px solid white;
     padding: 5px;
+}
+
+th{
+    background-color: steelblue;
 }
 
 .iconoFormulario{
     height: 35px;
+}
+
+.btnForm{
+    height: 35px;
+    border: none;
+    margin: 20px;
+    background-color: #e4e4e4;
+}
+
+#banner{
+    display: flex;
+    max-width: 600px;
+    height: 150px;
+    background-image: url('../images/mascotas_head.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+}
+
+footer{
+    width: 100vw;
+    height: 75px;
+    background-color: orange;
+    font-family:'Roboto',sans-serif;
+    list-style: none;
+}
+
+footer li {
+    list-style-type: none; 
+}
+
+footer li a{
+    text-decoration: none;
+    color: white;  
 }

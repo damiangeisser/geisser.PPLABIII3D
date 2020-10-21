@@ -20,7 +20,6 @@ function crearCabecera(item) {
             const th = document.createElement('th');
             const texto = document.createTextNode(key);
             th.appendChild(texto);
-            //th.textContent(key);
             tr.appendChild(th);
         }
     }
@@ -47,11 +46,10 @@ function crearCuerpo(lista) {
             }
         }
 
-        if(element.hasOwnProperty('id')){
-            //tr.setAttribute('data-id', element['id']);
-             tr.dataset.id = element['id'];
+        if (element.hasOwnProperty('id')) {
+            tr.dataset.id = element['id'];
         }
-  
+
         agregarManejadorTr(tr);
         tbody.appendChild(tr);
     });
